@@ -34,21 +34,7 @@ void main(){
     controlTareas(listadoTareas,tareasRealizadas,cantidadTareas);
     listarTareas(listadoTareas,tareasRealizadas,cantidadTareas);
     buscarTarea(listadoTareas,tareasRealizadas,cantidadTareas);
-    liberarMemoria(listadoTareas,tareasRealizadas,cantidadTareas);
-
-
-    for (int i = 0; i < cantidadTareas; i++)
-    {
-        printf("primer for ");
-        printf("id:%d ",listadoTareas[i]->TareaID);
-        printf("descrip:%s\n", listadoTareas[i]->Descripcion);
-    }
-      for (int i = 0; i < cantidadTareas; i++)
-    {
-        printf("id:%d ",tareasRealizadas[i]->TareaID);
-        printf("descrip:%s\n", tareasRealizadas[i]->Descripcion);
-    }
-    
+    liberarMemoria(listadoTareas,tareasRealizadas,cantidadTareas);    
 }
 
 Tarea** crearArreglo(int cantidad){
@@ -169,7 +155,7 @@ Tarea * buscarTareaxPalabraClave(Tarea **TareasPendientes,Tarea **TareasRealizad
 
 void buscarTarea(Tarea **TareasPendientes,Tarea **TareasRealizadas, int cantidad){
     int opcion, id, flag=1;
-    char *Auxarreglo=malloc(sizeof(char)*50);
+    char *Auxarreglo;
     Tarea *aux;
     while (flag==1)
     {
@@ -224,7 +210,6 @@ void liberarMemoria(Tarea **TareasPendientes, Tarea ** TareasRealizadas, int can
     for (int i = 0; i < cantidad; i++)
     {
         free(TareasPendientes[i]);
-        free(TareasRealizadas[i]);
     }
     free(TareasPendientes);
     free(TareasRealizadas);
