@@ -93,7 +93,7 @@ void controlTareas(Tarea **tareasPendientes, Tarea **tareaRealizada, int cantida
         }
         printf("\n");
     }
-    puts("* ------------------------------------- *\n");
+    puts("* -------------------------------- *\n");
 }
 
 void listarTareas(Tarea **TareasPendientes, Tarea ** TareasRealizadas, int cantidad){
@@ -106,7 +106,7 @@ void listarTareas(Tarea **TareasPendientes, Tarea ** TareasRealizadas, int canti
             printf("Descripcion:%s\n", TareasRealizadas[i]->Descripcion);
         }
     }
-    puts("* ------------------------------------- *\n");
+    puts("* -------------------------------- *\n");
     printf("****** Tareas Pendientes *****\n");
     for (int j = 0; j < cantidad; j++)
     {
@@ -115,7 +115,7 @@ void listarTareas(Tarea **TareasPendientes, Tarea ** TareasRealizadas, int canti
             printf("Tarea pendiente ID:%d\n", TareasPendientes[j]->TareaID);
         }   
     }
-     puts("* ------------------------------------- *\n");
+     puts("* -------------------------------- *\n");
 }
 
 Tarea * buscarTareaxID(Tarea **TareasPendientes,Tarea **TareasRealizadas, int cantidad, int ID){
@@ -209,6 +209,7 @@ void buscarTarea(Tarea **TareasPendientes,Tarea **TareasRealizadas, int cantidad
 void liberarMemoria(Tarea **TareasPendientes, Tarea ** TareasRealizadas, int cantidad){
     for (int i = 0; i < cantidad; i++)
     {
+        free(TareasPendientes[i]->Descripcion);
         free(TareasPendientes[i]);
     }
     free(TareasPendientes);
