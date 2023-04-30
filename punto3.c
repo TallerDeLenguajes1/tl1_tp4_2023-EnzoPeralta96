@@ -90,7 +90,7 @@ NODO * CrearLista(){
 void InsertarNodoListaGeneral(NODO ** Lista, int ID, char *Descripcion, int Duracion){
     NODO * NuevoNodo = malloc(sizeof(NODO));
     NuevoNodo->T.TareaID=ID;
-    NuevoNodo->T.Descripcion=malloc(sizeof(char)*100);
+    NuevoNodo->T.Descripcion=malloc(sizeof(char)*(strlen(Descripcion)+1));
     strcpy(NuevoNodo->T.Descripcion,Descripcion);
     NuevoNodo->T.Duracion=Duracion;
     NuevoNodo->Siguiente = (*Lista);
